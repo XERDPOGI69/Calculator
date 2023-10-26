@@ -3,303 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
     <style>
-        header{
-            background-color: rgba(27, 27, 27, 0.836);
+        header {
+            background-color: #000000;
+            color: rgb(233, 151, 0);
+            font-family: monospace;
+            font-size: 30px;
             padding: 20px;
-            justify-items: center;
+            text-align: center;
+        }
+        .container {
+            background-color: rgb(255, 255, 255);
             display: flex;
-            position: relative;
-        }
-
-        header h1{
-            position: relative;
-            left: 38%;
-            color: aliceblue;
-            font-size: 100px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-        }
- 
-
-        .container{
-            background-color: antiquewhite;
-            width: 100%;
-            height: 1000px;
-        }
-        .box{
-            background-color: rgb(0, 0, 0);
-            display: flex;
-            position: relative;
-            left: 35%;
-            top: 10%;
             justify-content: center;
-            width: 600px;
-            height: 800px;
-            border-radius: 7%;
-
+            align-items: center;
+            height: 80vh;
+            
         }
-        .textview{
-            font-size: 2em;
-            width: 250%;
-            height: 80px;
-            position: relative;
-            left: 50%;
-            top:5%;
-            border-radius: 15%;
-            border: 5px solid black;
+        .calculator {
+            background-color: black;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 320px; /* Adjust the width */
+            height: 550px; /* Adjust the height */
+            padding: 30px;
+            text-align: center;
         }
-        .cal-btn{
-            padding: 5px;
-            position: relative;
+        .textview {
+            font-size: 2.5em;
+            width: 90%;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: rgba(99, 99, 99, 0.13);
+            color: white;
+            border: 1px solid grey;
+        }
+        .cal-btn {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            align-items: stretch;
-            gap: 10px;
-            top: 20%;
-            right: 14.5%;
-            margin-bottom: 250px;
-            
-
+            gap: 15px;
+            margin-top: 15px;
         }
-
-        .cal-btn button{
-            width: 100%;
-            padding: 20px 2vw;
-            border-radius: 10%;
-            color:aliceblue ;
-            font-weight: bolder;
-            font-size: 20px;
-            background-color: rgb(177, 177, 177);
-            
+        .cal-btn button {
+            font-size: 1.8em;
+            padding: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        .cal-btn .btnequal{
-            grid-row: 4/6;
-            grid-column-start: 4;
-
+        .operator {
+            background-color: yellow;
+            color: black;
         }
-        .cal-btn .btnzero{
+        .number {
+            background-color: grey;
+            color: white;
+        }
+        .cal-btn button:hover {
+            background-color: #0d5eaf;
+        }
+        .cal-btn .btnzero {
             grid-column: span 2;
         }
-
-        #Columnend{
-            background-color: rgb(255, 196, 0);
+        .cal-btn .btnequal {
+            grid-row: 4/6;
+            grid-column: 4/5;
         }
-        
-        #number{
-            background-color: rgb(83, 83, 83);
-        }
-
-
     </style>
 </head>
-<body><!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calculator</title>
-        <style>
-            header {
-                background-color: #000000;
-                color: rgb(233, 151, 0);
-                font-family: monospace;
-                font-size: 30px;
-                padding: 20px;
-                text-align: center;
-            }
-            .container {
-                background-color: rgb(255, 255, 255);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 80vh;
-                
-            }
-            .calculator {
-                background-color: black;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-                width: 320px; /* Adjust the width */
-                height: 550px; /* Adjust the height */
-                padding: 30px;
-                text-align: center;
-            }
-            .textview {
-                font-size: 2.5em;
-                width: 90%;
-                padding: 15px;
-                margin: 15px 0;
-                background-color: rgba(99, 99, 99, 0.13);
-                color: white;
-                border: 1px solid grey;
-            }
-            .cal-btn {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 15px;
-                margin-top: 15px;
-            }
-            .cal-btn button {
-                font-size: 1.8em;
-                padding: 20px;
-                cursor: pointer;
-                border: none;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-            }
-            .operator {
-                background-color: yellow;
-                color: black;
-            }
-            .number {
-                background-color: grey;
-                color: white;
-            }
-            .cal-btn button:hover {
-                background-color: #0d5eaf;
-            }
-            .cal-btn .btnzero {
-                grid-column: span 2;
-            }
-            .cal-btn .btnequal {
-                grid-row: 4/6;
-                grid-column: 4/5;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>Calculator</h1>
-        </header>
-        <div class="container">
-            <div class="calculator">
-                <form name="form1">
-                    <input type="text" class="textview" name="textview" readonly>
-                </form>
-                <div class="cal-btn">
-                    <button type="button" onclick="clearDisplay()">C</button>
-                    <button type="button" onclick="deleteLastChar()">B</button>
-                    <button type="button" class="operator" onclick="appendToDisplay('/')">/</button>
-                    <button type="button" class="operator" onclick="appendToDisplay('*')">*</button>
-                    <button type="button" class="number" onclick="appendToDisplay('7')">7</button>
-                    <button type="button" class="number" onclick="appendToDisplay('8')">8</button>
-                    <button type="button" class="number" onclick="appendToDisplay('9')">9</button>
-                    <button type="button" class="operator" onclick="appendToDisplay('-')">-</button>
-                    <button type="button" class="number" onclick="appendToDisplay('4')">4</button>
-                    <button type="button" class="number" onclick="appendToDisplay('5')">5</button>
-                    <button type="button" class="number" onclick="appendToDisplay('6')">6</button>
-                    <button type="button" class="operator" onclick="appendToDisplay('+')">+</button>
-                    <button type="button" class="number" onclick="appendToDisplay('1')">1</button>
-                    <button type="button" class="number" onclick="appendToDisplay('2')">2</button>
-                    <button type="button" class="number" onclick="appendToDisplay('3')">3</button>
-                    <button type="button" class="btnzero" onclick="appendToDisplay('0')">0</button>
-                    <button type="button" class="number" onclick="appendToDisplay('.')">.</button>
-                    <button type="button" class="btnequal" onclick="calculate()">=</button>
-                </div>
-            </div>
-        </div>
-    
-        <script>
-            function appendToDisplay(value) {
-                document.form1.textview.value += value;
-            }
-    
-            function clearDisplay() {
-                document.form1.textview.value = '';
-            }
-    
-            function deleteLastChar() {
-                let display = document.form1.textview.value;
-                document.form1.textview.value = display.slice(0, -1);
-            }
-    
-            function calculate() {
-                let expression = document.form1.textview.value;
-                try {
-                    let result = eval(expression);
-                    document.form1.textview.value = result;
-                } catch (error) {
-                    document.form1.textview.value = "Error";
-                }
-            }
-        </script>
-    </body>
-    </html>
-    
+<body>
     <header>
         <h1>Calculator</h1>
     </header>
     <div class="container">
-        <div class="box">
-
-            <form name="form1" action="">
-
-                <input type="text" class="textview" name="textview">
-
-
+        <div class="calculator">
+            <form name="form1">
+                <input type="text" class="textview" name="textview" readonly>
             </form>
-            
-            
             <div class="cal-btn">
-                <button type="button" onclick="form1.textview.value=''">C</button>
-                <button type="button" onclick="backspace()" value="B">B</button>
-                <button type="button" onclick="insert('/')" value="/">/</button>
-                <button id="Columnend" type="button" onclick="insert('*')" value="*">*</button>
-
-                <button id="number" type="button" onclick="insert(7)" value="7">7</button>
-                <button id="number" type="button" onclick="insert(8)" value="8">8</button>
-                <button id="number" type="button" onclick="insert(9)" value="9">9</button>
-                <button id="Columnend" type="button" onclick="insert('-')" value="-">-</button>
-
-                <button id="number" type="button" onclick="insert(4)" value="4">4</button>
-                <button id="number" type="button" onclick="insert(5)" value="5">5</button>
-                <button id="number" type="button" onclick="insert(6)" value="6">6</button>
-                <button id="Columnend" type="button" onclick="insert('+')" value="+">+</button>
-
-                <button id="number" type="button" onclick="insert(1)" value="1">1</button>
-                <button id="number" type="button" onclick="insert(2)" value="2">2</button>
-                <button id="number" type="button" onclick="insert(3)" value="3">3</button>
-
-                <button id="Columnend" type="button" class="btnequal" onclick="equal()" value="=">=</button>
-                <button id="number" type="button" class="btnzero" onclick="insert(0)" value="0">0</button>
-                <button id="number" type="button" onclick="insert('.')" value=".">.</button>
-                
-           
+                <button type="button" onclick="clearDisplay()">C</button>
+                <button type="button" onclick="deleteLastChar()">B</button>
+                <button type="button" class="operator" onclick="appendToDisplay('/')">/</button>
+                <button type="button" class="operator" onclick="appendToDisplay('*')">*</button>
+                <button type="button" class="number" onclick="appendToDisplay('7')">7</button>
+                <button type="button" class="number" onclick="appendToDisplay('8')">8</button>
+                <button type="button" class="number" onclick="appendToDisplay('9')">9</button>
+                <button type="button" class="operator" onclick="appendToDisplay('-')">-</button>
+                <button type="button" class="number" onclick="appendToDisplay('4')">4</button>
+                <button type="button" class="number" onclick="appendToDisplay('5')">5</button>
+                <button type="button" class="number" onclick="appendToDisplay('6')">6</button>
+                <button type="button" class="operator" onclick="appendToDisplay('+')">+</button>
+                <button type="button" class="number" onclick="appendToDisplay('1')">1</button>
+                <button type="button" class="number" onclick="appendToDisplay('2')">2</button>
+                <button type="button" class="number" onclick="appendToDisplay('3')">3</button>
+                <button type="button" class="btnzero" onclick="appendToDisplay('0')">0</button>
+                <button type="button" class="number" onclick="appendToDisplay('.')">.</button>
+                <button type="button" class="btnequal" onclick="calculate()">=</button>
             </div>
-
         </div>
-
     </div>
+
+    <script>
+        function appendToDisplay(value) {
+            document.form1.textview.value += value;
+        }
+
+        function clearDisplay() {
+            document.form1.textview.value = '';
+        }
+
+        function deleteLastChar() {
+            let display = document.form1.textview.value;
+            document.form1.textview.value = display.slice(0, -1);
+        }
+
+        function calculate() {
+            let expression = document.form1.textview.value;
+            try {
+                let result = eval(expression);
+                document.form1.textview.value = result;
+            } catch (error) {
+                document.form1.textview.value = "Error";
+            }
+        }
+    </script>
 </body>
 </html>
-<script type = "text/javascript"> 
-function insert(num){
-    const inputvalue = document.form1.textview.value;
-
-    document.form1.textview.value = inputvalue + num;
-}
-function backspace(){
-    let total =  document.form1.textview.value;
-    total = total.slice(0,-1);
-
-    document.form1.textview.value = total;
-}
-function equal(){
-    let total =  document.form1.textview.value;
-
-    if(total){
-        total = eval(total);
-
-        document.form1.textview.value = total;
-    }else{
-        document.form1.textview.value = "error";
-    }
-
-    }
-
-
-
-
-</script>
