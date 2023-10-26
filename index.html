@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            background-color: rgba(27, 27, 27, 0.836);
+            padding: 20px;
+            justify-items: center;
+            display: flex;
+            position: relative;
+        }
+
+        header h1{
+            position: relative;
+            left: 38%;
+            color: aliceblue;
+            font-size: 100px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+ 
+
+        .container{
+            background-color: antiquewhite;
+            width: 100%;
+            height: 1000px;
+        }
+        .box{
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            position: relative;
+            left: 35%;
+            top: 10%;
+            justify-content: center;
+            width: 600px;
+            height: 800px;
+            border-radius: 7%;
+
+        }
+        .textview{
+            font-size: 2em;
+            width: 250%;
+            height: 80px;
+            position: relative;
+            left: 50%;
+            top:5%;
+            border-radius: 15%;
+            border: 5px solid black;
+        }
+        .cal-btn{
+            padding: 5px;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: stretch;
+            gap: 10px;
+            top: 20%;
+            right: 14.5%;
+            margin-bottom: 250px;
+            
+
+        }
+
+        .cal-btn button{
+            width: 100%;
+            padding: 20px 2vw;
+            border-radius: 10%;
+            color:aliceblue ;
+            font-weight: bolder;
+            font-size: 20px;
+            background-color: rgb(177, 177, 177);
+            
+        }
+        .cal-btn .btnequal{
+            grid-row: 4/6;
+            grid-column-start: 4;
+
+        }
+        .cal-btn .btnzero{
+            grid-column: span 2;
+        }
+
+        #Columnend{
+            background-color: rgb(255, 196, 0);
+        }
+        
+        #number{
+            background-color: rgb(83, 83, 83);
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+    <div class="container">
+        <div class="box">
+
+            <form name="form1" action="">
+
+                <input type="text" class="textview" name="textview">
+
+
+            </form>
+            
+            
+            <div class="cal-btn">
+                <button type="button" onclick="form1.textview.value=''">C</button>
+                <button type="button" onclick="backspace()" value="B">B</button>
+                <button type="button" onclick="insert('/')" value="/">/</button>
+                <button id="Columnend" type="button" onclick="insert('*')" value="*">*</button>
+
+                <button id="number" type="button" onclick="insert(7)" value="7">7</button>
+                <button id="number" type="button" onclick="insert(8)" value="8">8</button>
+                <button id="number" type="button" onclick="insert(9)" value="9">9</button>
+                <button id="Columnend" type="button" onclick="insert('-')" value="-">-</button>
+
+                <button id="number" type="button" onclick="insert(4)" value="4">4</button>
+                <button id="number" type="button" onclick="insert(5)" value="5">5</button>
+                <button id="number" type="button" onclick="insert(6)" value="6">6</button>
+                <button id="Columnend" type="button" onclick="insert('+')" value="+">+</button>
+
+                <button id="number" type="button" onclick="insert(1)" value="1">1</button>
+                <button id="number" type="button" onclick="insert(2)" value="2">2</button>
+                <button id="number" type="button" onclick="insert(3)" value="3">3</button>
+
+                <button id="Columnend" type="button" class="btnequal" onclick="equal()" value="=">=</button>
+                <button id="number" type="button" class="btnzero" onclick="insert(0)" value="0">0</button>
+                <button id="number" type="button" onclick="insert('.')" value=".">.</button>
+                
+           
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
+<script type = "text/javascript"> 
+function insert(num){
+    const inputvalue = document.form1.textview.value;
+
+    document.form1.textview.value = inputvalue + num;
+}
+function backspace(){
+    let total =  document.form1.textview.value;
+    total = total.slice(0,-1);
+
+    document.form1.textview.value = total;
+}
+function equal(){
+    let total =  document.form1.textview.value;
+
+    if(total){
+        total = eval(total);
+
+        document.form1.textview.value = total;
+    }else{
+        document.form1.textview.value = "error";
+    }
+
+    }
+
+
+
+
+</script>
